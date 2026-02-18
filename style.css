@@ -20,9 +20,10 @@ body {
     font-family: 'Pretendard', sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-start; /* 상단부터 정렬되도록 변경 */
+    min-height: 100vh; /* 최소 높이 설정 */
     margin: 0;
+    padding: 50px 0; /* 상하단 여유 공간 추가 */
     background-color: var(--bg-color);
     transition: background-color 0.3s ease;
 }
@@ -34,7 +35,8 @@ body {
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 10px 30px var(--box-shadow-color);
-    width: 350px;
+    width: 90%; /* 모바일 대응을 위해 퍼센트 추가 */
+    max-width: 600px; /* 댓글창을 위해 너비를 조금 더 넓게 조정 */
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
