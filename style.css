@@ -1,44 +1,117 @@
+/* CSS Variables for theming */
+:root {
+    --bg-color: #f8f9fa;
+    --container-bg-color: #ffffff;
+    --text-color-h1: #2c3e50;
+    --text-color-p: #7f8c8d;
+    --box-shadow-color: rgba(0,0,0,0.1);
+}
+
+body.dark-mode {
+    --bg-color: #2c3e50;
+    --container-bg-color: #34495e;
+    --text-color-h1: #ecf0f1;
+    --text-color-p: #bdc3c7;
+    --box-shadow-color: rgba(0,0,0,0.4);
+}
+
+/* 전체 배경 설정 */
 body {
-    font-family: sans-serif;
+    font-family: 'Pretendard', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
+    height: 100vh;
     margin: 0;
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease;
 }
 
+/* 중앙 컨테이너 */
 .container {
     text-align: center;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background: var(--container-bg-color);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--box-shadow-color);
+    width: 350px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-#generate-btn {
-    margin-top: 1rem;
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
+h1 {
+    color: var(--text-color-h1);
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+p {
+    color: var(--text-color-p);
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+/* 테마 토글 버튼 */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #3498db;
     color: white;
-    transition: background-color 0.3s;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.theme-toggle:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+/* 생성 버튼 */
+#generate-btn {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: bold;
 }
 
 #generate-btn:hover {
-    background-color: #0056b3;
+    background-color: #2980b9;
+    transform: translateY(-2px);
 }
 
+/* 공들이 담길 공간 */
 #lotto-numbers-container {
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 2rem;
+    min-height: 50px;
 }
 
-lotto-number {
-    display: inline-block;
+/* 로또 공 스타일 */
+.ball {
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    box-shadow: inset -4px -4px 6px rgba(0,0,0,0.2), 2px 2px 5px rgba(0,0,0,0.1);
 }
